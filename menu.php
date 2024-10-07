@@ -40,8 +40,6 @@ $result = $stmt->get_result();
           <li class="nav-item">
             <a href="index.php" class="nav-link"> Home</a>
           </li>
-          
-          
         </ul>
 
         <button id="menu-open-button" class="fas fa-bars"></button>
