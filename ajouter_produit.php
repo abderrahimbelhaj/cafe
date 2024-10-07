@@ -118,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            
             
             <input type="file" name="image" accept="image/*" required>
-
+                                                                                                                                                                                                                                                    
 <button type="submit">Add</button>
           
         </form>

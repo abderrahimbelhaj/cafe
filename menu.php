@@ -34,8 +34,6 @@ $result = $stmt->get_result();
 <body style="background-color:#3b141c;">
 <header>
       <nav class="navbar">
-       
-
         <ul class="nav-menu">
           <button id="menu-close-button" class="fas fa-times"></button>
 
