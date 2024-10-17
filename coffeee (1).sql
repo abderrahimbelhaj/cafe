@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 03 oct. 2024 à 11:59
+-- Généré le : jeu. 17 oct. 2024 à 09:08
 -- Version du serveur : 10.11.9-MariaDB
--- Version de PHP : 8.3.11
+-- Version de PHP : 8.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,7 +39,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `price`, `image`) VALUES
-(1, 'Special Combos', 60.00, 'uploads/burger-frenchfries.png'),
+(1, 'Special Combos', 50.00, 'uploads/burger-frenchfries.png'),
 (2, 'Dessert', 19.99, 'uploads/desserts.png'),
 (3, 'Hot Beverages', 10.00, 'uploads/hot-beverages.png'),
 (5, 'Cold Beverages', 35.00, 'uploads/cold-beverages.png');
@@ -56,15 +56,22 @@ CREATE TABLE `reservations` (
   `numero_de_telephone` varchar(15) NOT NULL,
   `jour` date NOT NULL,
   `nombre_de_personnes` int(11) NOT NULL,
-  `heure` varchar(15) NOT NULL
+  `heure` time DEFAULT NULL,
+  `decision` varchar(20) NOT NULL DEFAULT 'pending',
+  `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Déchargement des données de la table `reservations`
 --
 
-INSERT INTO `reservations` (`id`, `nom`, `numero_de_telephone`, `jour`, `nombre_de_personnes`, `heure`) VALUES
-(1, 'abderrahim', '58762904', '2024-10-04', 2, '14:00');
+INSERT INTO `reservations` (`id`, `nom`, `numero_de_telephone`, `jour`, `nombre_de_personnes`, `heure`, `decision`, `user_id`) VALUES
+(1, 'abderrahim', '58762904', '2024-10-04', 2, '14:00:00', 'acceptÃ©', NULL),
+(2, 'abderrahim', '58762904', '2024-10-28', 4, '13:00:00', 'rejetÃ©', NULL),
+(6, 'taha', '21005989', '2024-10-23', 6, '13:16:00', 'pending', 2),
+(7, 'taha', '21005989', '2024-10-23', 6, '13:16:00', 'pending', 2),
+(8, 'youssef', '50699325', '2024-10-04', 5, '12:20:00', 'acceptÃ©', 2),
+(15, 'fedi', '99632545', '2024-10-02', 1, '12:48:00', 'rejetÃ©', 2);
 
 -- --------------------------------------------------------
 
@@ -124,7 +131,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `users`
